@@ -1,0 +1,124 @@
+body {
+    background-image:url("https://eu-wotp.wgcdn.co/static/5.50.0_549cb5/wotp_static/img/core/frontend/scss/common/blocks/header/img/header_tankopedia-big.jpg");
+}
+
+.navbar {
+    float:top;
+    width:100%;
+    display:block;
+    background-color: rgba(39,39,43,.85);
+    left: 0;
+    right: 0;
+    height: 72px;
+    will-change: transform;
+}
+
+.fontA {
+    display:block;
+    background-color: rgba(39,39,43,1);
+    width:80% !important;
+    color:#e9e2bf;
+    padding:20px;
+}
+
+.barreBlocElement {
+    display:block;
+    float:right;
+    text-align: end;
+    padding:5px;
+    width:100%;
+}
+
+
+.profilePic {
+    display:block;
+    position:relative;
+    float:right;
+    max-height:500px;
+    max-width:200px;
+}
+
+.submenu_item {
+    height: 66px;
+    background-color: transparent;
+    font-size: 14px;
+    height:100px;
+    font-weight: 700;
+    color: #aaaaab;
+    padding: 0;
+    font-size: 1em;
+    display: inline;
+}
+.nav-submenu > ul > li > a {
+    width: 120px;
+    display: inline;
+    padding: 5px;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    line-height:37px;
+}
+
+a:hover {
+    color: orange;
+}
+
+a {
+    font-weight: bold;
+    color:#aaaaab;
+    font-size: large;
+    text-decoration-style: solid;
+}
+
+.nav-submenu, elementMenu {
+    height:100%;
+}
+
+li,ul {
+    list-style:none;
+    height:100%;
+    display:inline;
+}
+
+.nav-submenu > ul > li {
+    width:150px;
+}
+
+.header_bloc {
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:20px;
+    min-height: 116px;
+    padding-top: 132px;
+    margin-bottom: 55px;
+}
+
+
+.header_content > h2 {
+    font-weight: bolder;
+    text-transform:uppercase;
+    color:#f9f5e1;
+}
+
+
+.header {
+    font-family: "Roboto Condensed","Arial Narrow",Arial,sans-serif;
+    font-weight:bolder !important;
+    line-height:46px;
+    text-transform: uppercase;
+    font-size: 44px;
+}
+
+.btn-main {
+    color: #f25322;
+    box-shadow: none;
+    background: 0 0;
+    border: 2px solid #f25322;
+}
+
+.btn-main:hover {
+    background-color:rgb(240,100,50) !important;
+    border-color:orange;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vYXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHFCQUFxQjtJQUNyQixxQkFBcUI7QUFDekIiLCJmaWxlIjoiYXBwLmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDtcbiAgICBjb2xvcjpibHVlICFpbXBvcnRhbnQ7XG59XG5cblxuIl0sInNvdXJjZVJvb3QiOiIifQ==*/
