@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PolitiqueController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container fontA styleBlocCentral">
+    <div class="barreBlocElement"><button type="button" class="btn btn-primary"><a  href="{{ path('politiquebuild')}}">Ajouter</a></button></div>
+
+    <div class="container">
+        <table>
+        {% for politique in politiques %}
+            <tr>
+            <td> <a href="{{ path('politiqueview', {id:politique.id}) }}"> {{ politique.Libelle }}</a></td>
+                <td><img height="57px" width="57px" src="{{ politique.Logo }}"/></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+
+</div>
+{% endblock %}
