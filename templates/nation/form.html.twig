@@ -22,6 +22,15 @@
             {{ form_row(form.nationPartis, { 'attr': {'class': 'form-control selectpicker'} }) }}
         </div>
         <div class="form-group">
+            {{ form_row(form.Leader, { 'attr': {'class': 'form-control selectpicker'} }) }}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">https://siteImage/drapeau.png</span>
+            </div>
+            {{ form_widget(form.Drapeau|raw,  { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
             {{ form_row(form.submit, { 'attr': {'class': 'btn btn-primary'} }) }}
         </div>
     </div>

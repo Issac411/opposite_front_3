@@ -13,11 +13,14 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/ethnie' => [[['_route' => 'ethnie', '_controller' => 'App\\Controller\\EthnieController::index'], null, null, null, false, false, null]],
+        '/ethnie/build' => [[['_route' => 'ethniebuild', '_controller' => 'App\\Controller\\EthnieController::form'], null, null, null, false, false, null]],
         '/leader' => [[['_route' => 'leader', '_controller' => 'App\\Controller\\LeaderController::index'], null, null, null, false, false, null]],
         '/leader/build' => [[['_route' => 'leaderbuild', '_controller' => 'App\\Controller\\LeaderController::form'], null, null, null, false, false, null]],
         '/leader/viewall' => [[['_route' => 'leaderviewall', '_controller' => 'App\\Controller\\LeaderController::viewAll'], null, null, null, false, false, null]],
         '/nation' => [[['_route' => 'nation', '_controller' => 'App\\Controller\\NationController::index'], null, null, null, false, false, null]],
         '/nation/build' => [[['_route' => 'nationBuild', '_controller' => 'App\\Controller\\NationController::create'], null, null, null, false, false, null]],
+        '/nation/viewall' => [[['_route' => 'nationviewall', '_controller' => 'App\\Controller\\NationController::viewAll'], null, null, null, false, false, null]],
         '/parti' => [[['_route' => 'parti', '_controller' => 'App\\Controller\\PartiController::index'], null, null, null, false, false, null]],
         '/parti/build' => [[['_route' => 'partibuild', '_controller' => 'App\\Controller\\PartiController::form'], null, null, null, false, false, null]],
         '/parti/viewall' => [[['_route' => 'partiviewall', '_controller' => 'App\\Controller\\PartiController::viewAll'], null, null, null, false, false, null]],
@@ -43,18 +46,20 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/ethnie/view/([^/]++)(*:190)'
                 .'|/leader/(?'
-                    .'|edit/([^/]++)(*:193)'
-                    .'|view/([^/]++)(*:214)'
+                    .'|edit/([^/]++)(*:222)'
+                    .'|view/([^/]++)(*:243)'
                 .')'
+                .'|/nation/view/([^/]++)(*:273)'
                 .'|/p(?'
                     .'|arti/(?'
-                        .'|view/([^/]++)(*:249)'
-                        .'|edit/([^/]++)(*:270)'
+                        .'|view/([^/]++)(*:307)'
+                        .'|edit/([^/]++)(*:328)'
                     .')'
                     .'|olitique/(?'
-                        .'|edit/([^/]++)(*:304)'
-                        .'|view/([^/]++)(*:325)'
+                        .'|edit/([^/]++)(*:362)'
+                        .'|view/([^/]++)(*:383)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -67,12 +72,14 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        193 => [[['_route' => 'leaderedit', '_controller' => 'App\\Controller\\LeaderController::edit'], ['id'], null, null, false, true, null]],
-        214 => [[['_route' => 'leaderview', '_controller' => 'App\\Controller\\LeaderController::view'], ['id'], null, null, false, true, null]],
-        249 => [[['_route' => 'partiview', '_controller' => 'App\\Controller\\PartiController::view'], ['id'], null, null, false, true, null]],
-        270 => [[['_route' => 'partiedit', '_controller' => 'App\\Controller\\PartiController::edit'], ['id'], null, null, false, true, null]],
-        304 => [[['_route' => 'politiqueedit', '_controller' => 'App\\Controller\\PolitiqueController::edit'], ['id'], null, null, false, true, null]],
-        325 => [
+        190 => [[['_route' => 'ethnieview', '_controller' => 'App\\Controller\\EthnieController::view'], ['id'], null, null, false, true, null]],
+        222 => [[['_route' => 'leaderedit', '_controller' => 'App\\Controller\\LeaderController::edit'], ['id'], null, null, false, true, null]],
+        243 => [[['_route' => 'leaderview', '_controller' => 'App\\Controller\\LeaderController::view'], ['id'], null, null, false, true, null]],
+        273 => [[['_route' => 'nationview', '_controller' => 'App\\Controller\\NationController::view'], ['id'], null, null, false, true, null]],
+        307 => [[['_route' => 'partiview', '_controller' => 'App\\Controller\\PartiController::view'], ['id'], null, null, false, true, null]],
+        328 => [[['_route' => 'partiedit', '_controller' => 'App\\Controller\\PartiController::edit'], ['id'], null, null, false, true, null]],
+        362 => [[['_route' => 'politiqueedit', '_controller' => 'App\\Controller\\PolitiqueController::edit'], ['id'], null, null, false, true, null]],
+        383 => [
             [['_route' => 'politiqueview', '_controller' => 'App\\Controller\\PolitiqueController::view'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

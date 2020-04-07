@@ -24,7 +24,7 @@ class Nation
     private $Libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\NationParti", mappedBy="relation", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\NationParti", mappedBy="relation", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $nationPartis;
 
@@ -78,10 +78,8 @@ class Nation
 
     public function addNationParti(NationParti $nationParti): self
     {
-        if (!$this->nationPartis->contains($nationParti)) {
             $this->nationPartis[] = $nationParti;
             $nationParti->setRelation($this);
-        }
 
         return $this;
     }

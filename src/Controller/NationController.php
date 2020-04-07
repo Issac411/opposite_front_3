@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Nation;
 use App\Entity\NationParti;
 use App\Form\NationType;
+use App\Repository\LeaderRepository;
+use App\Repository\NationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,6 +30,7 @@ class NationController extends AbstractController
         $nation = new Nation();
         $form = $this->createForm(NationType::class,$nation);
         $form->handleRequest($request);
+        $entityManager = $this->getDoctrine()->getManager();
         if ($form->isSubmitted() && $form->isValid()) {
             $lesPartis = $nation->getNationPartis();
             $nation->removeNationPartis();
@@ -36,8 +39,9 @@ class NationController extends AbstractController
                 $nationParti->setParti($parti);
                 $nationParti->setPopularite(1);
                 $nation->addNationParti($nationParti);
+
             }
-            $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->persist($nation);
             $entityManager->flush();
             return $this->redirectToRoute("nationview", ["id" => $nation->getId()]);
@@ -48,5 +52,33 @@ class NationController extends AbstractController
             ]);
         }
 
+    }
+
+    /**
+     * @Route("/nation/view/{id}", name="nationview")
+     */
+    public function view(Int $id, NationRepository $repoNation) {
+        $nation = $repoNation->find($id);
+        if($nation) {
+            return $this->render('nation/view.html.twig', [
+                'nation' => $nation
+            ]);
+        } else {
+            return $this->redirectToRoute("nationBuild");
+        }
+    }
+
+    /**
+     * @Route("/nation/viewall", name="nationviewall")
+     */
+    public function viewAll(NationRepository $repoNation) {
+        $nations = $repoNation->findAll();
+        if($nations) {
+            return $this->render('nation/viewAll.html.twig', [
+                'nations' => $nations
+            ]);
+        } else {
+            return $this->redirectToRoute("nationBuild");
+        }
     }
 }

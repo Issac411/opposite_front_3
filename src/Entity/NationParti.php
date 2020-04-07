@@ -17,7 +17,7 @@ class NationParti
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Nation", inversedBy="nationPartis")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Nation", inversedBy="nationPartis",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $relation;

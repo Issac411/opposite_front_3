@@ -121,4 +121,9 @@ li,ul {
     background-color:rgb(240,100,50) !important;
     border-color:orange;
 }
+
+.alignFlag {
+    display: grid;
+    text-align: right;
+}
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vYXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHFCQUFxQjtJQUNyQixxQkFBcUI7QUFDekIiLCJmaWxlIjoiYXBwLmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDtcbiAgICBjb2xvcjpibHVlICFpbXBvcnRhbnQ7XG59XG5cblxuIl0sInNvdXJjZVJvb3QiOiIifQ==*/

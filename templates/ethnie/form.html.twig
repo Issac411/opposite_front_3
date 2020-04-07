@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Ethnie!{% endblock %}
+
+{% block stylesheets %}
+    {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container fontA p-3 my-3 text-center md fontA">
+    {{ form_start(form,{'method': 'POST'}) }}
+        <div class="form-group">
+            {{ form_row(form.Libelle, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.submit, { 'attr': {'class': 'btn btn-primary'} }) }}
+        </div>
+    {{ form_end(form) }}
+</div>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+{% endblock %}
+
+
