@@ -51,15 +51,18 @@ return [
                     .'|edit/([^/]++)(*:222)'
                     .'|view/([^/]++)(*:243)'
                 .')'
-                .'|/nation/view/([^/]++)(*:273)'
+                .'|/nation/(?'
+                    .'|edit/([^/]++)(*:276)'
+                    .'|view/([^/]++)(*:297)'
+                .')'
                 .'|/p(?'
                     .'|arti/(?'
-                        .'|view/([^/]++)(*:307)'
-                        .'|edit/([^/]++)(*:328)'
+                        .'|view/([^/]++)(*:332)'
+                        .'|edit/([^/]++)(*:353)'
                     .')'
                     .'|olitique/(?'
-                        .'|edit/([^/]++)(*:362)'
-                        .'|view/([^/]++)(*:383)'
+                        .'|edit/([^/]++)(*:387)'
+                        .'|view/([^/]++)(*:408)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -75,11 +78,12 @@ return [
         190 => [[['_route' => 'ethnieview', '_controller' => 'App\\Controller\\EthnieController::view'], ['id'], null, null, false, true, null]],
         222 => [[['_route' => 'leaderedit', '_controller' => 'App\\Controller\\LeaderController::edit'], ['id'], null, null, false, true, null]],
         243 => [[['_route' => 'leaderview', '_controller' => 'App\\Controller\\LeaderController::view'], ['id'], null, null, false, true, null]],
-        273 => [[['_route' => 'nationview', '_controller' => 'App\\Controller\\NationController::view'], ['id'], null, null, false, true, null]],
-        307 => [[['_route' => 'partiview', '_controller' => 'App\\Controller\\PartiController::view'], ['id'], null, null, false, true, null]],
-        328 => [[['_route' => 'partiedit', '_controller' => 'App\\Controller\\PartiController::edit'], ['id'], null, null, false, true, null]],
-        362 => [[['_route' => 'politiqueedit', '_controller' => 'App\\Controller\\PolitiqueController::edit'], ['id'], null, null, false, true, null]],
-        383 => [
+        276 => [[['_route' => 'nationedit', '_controller' => 'App\\Controller\\NationController::edit'], ['id'], null, null, false, true, null]],
+        297 => [[['_route' => 'nationview', '_controller' => 'App\\Controller\\NationController::view'], ['id'], null, null, false, true, null]],
+        332 => [[['_route' => 'partiview', '_controller' => 'App\\Controller\\PartiController::view'], ['id'], null, null, false, true, null]],
+        353 => [[['_route' => 'partiedit', '_controller' => 'App\\Controller\\PartiController::edit'], ['id'], null, null, false, true, null]],
+        387 => [[['_route' => 'politiqueedit', '_controller' => 'App\\Controller\\PolitiqueController::edit'], ['id'], null, null, false, true, null]],
+        408 => [
             [['_route' => 'politiqueview', '_controller' => 'App\\Controller\\PolitiqueController::view'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

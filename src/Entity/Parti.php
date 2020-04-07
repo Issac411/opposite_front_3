@@ -39,12 +39,12 @@ class Parti
     private $leaders;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Nation", mappedBy="Partis")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Nation")
      */
     private $nations;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\NationParti", mappedBy="Parti", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\NationParti", inversedBy="Parti", cascade={"persist", "remove"})
      */
     private $nationParti;
 

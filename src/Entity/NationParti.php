@@ -23,7 +23,7 @@ class NationParti
     private $relation;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Parti", inversedBy="nationParti", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Parti", inversedBy="nationParti", cascade={"persist", "remove"})
      */
     private $Parti;
 

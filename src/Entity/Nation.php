@@ -24,7 +24,7 @@ class Nation
     private $Libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\NationParti", mappedBy="relation", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\NationParti", mappedBy="relation", cascade={"persist", "remove"})
      */
     private $nationPartis;
 
@@ -35,7 +35,7 @@ class Nation
     private $Ethnie;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Leader", inversedBy="nation", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Leader", inversedBy="nation", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $Leader;
@@ -99,8 +99,8 @@ class Nation
 
     public function removeNationPartis(): self
     {
-        $this->nationPartis = null;
-        return $this;
+            $this->nationPartis = null;
+            return $this;
     }
 
     public function getEthnie(): ?Ethnie

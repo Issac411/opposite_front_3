@@ -49,7 +49,7 @@ class Leader
     private $Parti;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Nation", mappedBy="Leader", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Nation", mappedBy="Leader", cascade={"persist", "remove"})
      */
     private $nation;
 

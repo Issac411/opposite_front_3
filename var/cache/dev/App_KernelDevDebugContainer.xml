@@ -354,6 +354,9 @@
     <service id="App\Form\NationType" class="App\Form\NationType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\NationTypeEditMode" class="App\Form\NationTypeEditMode" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\PartiType" class="App\Form\PartiType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -361,6 +364,10 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\EffetRepository" class="App\Repository\EffetRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\EspritNationalRepository" class="App\Repository\EspritNationalRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -373,6 +380,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\NationPartiRepository" class="App\Repository\NationPartiRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\NationPartisRepository" class="App\Repository\NationPartisRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -808,6 +819,7 @@
         <argument>App\Form\EthnieType</argument>
         <argument>App\Form\LeaderType</argument>
         <argument>App\Form\NationType</argument>
+        <argument>App\Form\NationTypeEditMode</argument>
         <argument>App\Form\PartiType</argument>
         <argument>App\Form\PolitiqueType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1133,7 +1145,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.6ix8R9b"/>
+      <argument type="service" id=".service_locator.QDnx.Tk"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3720,7 +3732,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.0A18Fcl"/>
+      <argument type="service" id=".service_locator.i2BQekh"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4723,18 +4735,24 @@
     <service id=".abstract.instanceof.App\Form\LeaderType" class="App\Form\LeaderType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\NationType" class="App\Form\NationType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\NationType" class="App\Form\NationType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\NationTypeEditMode" class="App\Form\NationTypeEditMode" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\NationTypeEditMode" class="App\Form\NationTypeEditMode" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PartiType" class="App\Form\PartiType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PartiType" class="App\Form\PartiType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PolitiqueType" class="App\Form\PolitiqueType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PolitiqueType" class="App\Form\PolitiqueType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EffetRepository" class="App\Repository\EffetRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EffetRepository" class="App\Repository\EffetRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EspritNationalRepository" class="App\Repository\EspritNationalRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\EspritNationalRepository" class="App\Repository\EspritNationalRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EthnieRepository" class="App\Repository\EthnieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EthnieRepository" class="App\Repository\EthnieRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LeaderRepository" class="App\Repository\LeaderRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LeaderRepository" class="App\Repository\LeaderRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NationPartiRepository" class="App\Repository\NationPartiRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\NationPartiRepository" class="App\Repository\NationPartiRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NationPartisRepository" class="App\Repository\NationPartisRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\NationPartisRepository" class="App\Repository\NationPartisRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NationRepository" class="App\Repository\NationRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\NationRepository" class="App\Repository\NationRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PartiRepository" class="App\Repository\PartiRepository" autowire="true" abstract="true"/>
@@ -4964,13 +4982,14 @@
         <argument key="repoPolitique" type="service" id="App\Repository\PolitiqueRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.wYhKXs2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.82Ta_0L" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\EthnieController::view" type="service" id=".service_locator.ik6HG4B"/>
         <argument key="App\Controller\LeaderController::edit" type="service" id=".service_locator.Jgwj3lq"/>
         <argument key="App\Controller\LeaderController::view" type="service" id=".service_locator.Jgwj3lq"/>
         <argument key="App\Controller\LeaderController::viewAll" type="service" id=".service_locator.Jgwj3lq"/>
+        <argument key="App\Controller\NationController::edit" type="service" id=".service_locator.u8T8CZA"/>
         <argument key="App\Controller\NationController::view" type="service" id=".service_locator.u8T8CZA"/>
         <argument key="App\Controller\NationController::viewAll" type="service" id=".service_locator.u8T8CZA"/>
         <argument key="App\Controller\PartiController::edit" type="service" id=".service_locator.L3HApHE"/>
@@ -5039,12 +5058,13 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.6ix8R9b" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QDnx.Tk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\EthnieType" type="service" id="App\Form\EthnieType"/>
         <argument key="App\Form\LeaderType" type="service" id="App\Form\LeaderType"/>
         <argument key="App\Form\NationType" type="service" id="App\Form\NationType"/>
+        <argument key="App\Form\NationTypeEditMode" type="service" id="App\Form\NationTypeEditMode"/>
         <argument key="App\Form\PartiType" type="service" id="App\Form\PartiType"/>
         <argument key="App\Form\PolitiqueType" type="service" id="App\Form\PolitiqueType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -5212,13 +5232,15 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.0A18Fcl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.i2BQekh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\EffetRepository" type="service" id="App\Repository\EffetRepository"/>
+        <argument key="App\Repository\EspritNationalRepository" type="service" id="App\Repository\EspritNationalRepository"/>
         <argument key="App\Repository\EthnieRepository" type="service" id="App\Repository\EthnieRepository"/>
         <argument key="App\Repository\LeaderRepository" type="service" id="App\Repository\LeaderRepository"/>
         <argument key="App\Repository\NationPartiRepository" type="service" id="App\Repository\NationPartiRepository"/>
+        <argument key="App\Repository\NationPartisRepository" type="service" id="App\Repository\NationPartisRepository"/>
         <argument key="App\Repository\NationRepository" type="service" id="App\Repository\NationRepository"/>
         <argument key="App\Repository\PartiRepository" type="service" id="App\Repository\PartiRepository"/>
         <argument key="App\Repository\PolitiqueRepository" type="service" id="App\Repository\PolitiqueRepository"/>
@@ -5442,12 +5464,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.wYhKXs2"/>
+      <argument type="service" id=".service_locator.82Ta_0L"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.wYhKXs2"/>
+      <argument type="service" id=".service_locator.82Ta_0L"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5827,7 +5849,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.wYhKXs2"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.82Ta_0L"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

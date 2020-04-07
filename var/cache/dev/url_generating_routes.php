@@ -25,6 +25,7 @@ return [
     'leaderviewall' => [[], ['_controller' => 'App\\Controller\\LeaderController::viewAll'], [], [['text', '/leader/viewall']], [], []],
     'nation' => [[], ['_controller' => 'App\\Controller\\NationController::index'], [], [['text', '/nation']], [], []],
     'nationBuild' => [[], ['_controller' => 'App\\Controller\\NationController::create'], [], [['text', '/nation/build']], [], []],
+    'nationedit' => [['id'], ['_controller' => 'App\\Controller\\NationController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/nation/edit']], [], []],
     'nationview' => [['id'], ['_controller' => 'App\\Controller\\NationController::view'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/nation/view']], [], []],
     'nationviewall' => [[], ['_controller' => 'App\\Controller\\NationController::viewAll'], [], [['text', '/nation/viewall']], [], []],
     'parti' => [[], ['_controller' => 'App\\Controller\\PartiController::index'], [], [['text', '/parti']], [], []],

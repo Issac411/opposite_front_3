@@ -15,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class NationType extends AbstractType
+class NationTypeEditMode extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -42,7 +42,7 @@ class NationType extends AbstractType
                 'query_builder' => function (LeaderRepository $repo) use ($options) {
                     return $repo->createQueryBuilder('u')
                         ->leftjoin(Nation::class,'n',Join::WITH,'n.Leader = u.id')
-                        ->where(' n.id IS NULL OR n.Leader = '.$options['label']);
+                        ->where(' n.id IS NULL OR n.id ='.$options['label']);
                 },
                 'expanded' => false,
             ])

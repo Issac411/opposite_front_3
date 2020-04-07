@@ -9,14 +9,9 @@
 </style>
 
 <div class="container fontA styleBlocCentral">
-    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('nationviewall')}}">Retour</a></button></div>
+    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{  path('nationedit', {id:nation.id|number_format})}}">Editer</a></button><button type="button" class="btn btn-info"><a  href="{{ path('nationviewall')}}">Retour</a></button></div>
     <h3 class="text-white">{{ nation.libelle }}</h3>
     <div class="row">
-        <img src="https://hoi4.paradoxwikis.com/images/f/f9/Generic_local_self_management.png">
-        <img src="https://hoi4.paradoxwikis.com/images/f/f9/Generic_local_self_management.png">
-        <img src="https://hoi4.paradoxwikis.com/images/f/f9/Generic_local_self_management.png">
-        <img src="https://hoi4.paradoxwikis.com/images/f/f9/Generic_local_self_management.png">
-        <img src="https://hoi4.paradoxwikis.com/images/f/f9/Generic_local_self_management.png">
 
 
     </div>
