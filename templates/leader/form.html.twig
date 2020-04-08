@@ -11,10 +11,7 @@
 {% block body %}
 
 <div class="container fontA p-3 my-3 text-center md fontA">
-    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a
-
-                        href=""
-            >Retour</a></button></div>
+    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('leaderviewall') }}">Retour</a></button></div>
     {{ form_start(form,{'method': 'POST'}) }}
         <div class="form-group">
             {{ form_row(form.Nom, { 'attr': {'class': 'form-control'} }) }}
