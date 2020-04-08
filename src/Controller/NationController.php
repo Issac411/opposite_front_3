@@ -115,7 +115,7 @@ class NationController extends AbstractController
     public function viewAll(NationRepository $repoNation) {
         $nations = $repoNation->findAll();
         if($nations) {
-            return $this->render('nation/viewAll.html.twig', [
+            return $this->render('nation/viewall.html.twig', [
                 'nations' => $nations
             ]);
         } else {
