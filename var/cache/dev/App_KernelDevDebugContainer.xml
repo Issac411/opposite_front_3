@@ -345,7 +345,17 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\PolitiqueController"/>
       </call>
     </service>
+    <service id="App\Controller\TraitElementController" class="App\Controller\TraitElementController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\TraitElementController"/>
+      </call>
+    </service>
     <service id="App\Dal\Nation_Parti_factory" class="App\Dal\Nation_Parti_factory" autowire="true" autoconfigure="true"/>
+    <service id="App\Form\EffetType" class="App\Form\EffetType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\EthnieType" class="App\Form\EthnieType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -362,6 +372,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\PolitiqueType" class="App\Form\PolitiqueType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TraitElementType" class="App\Form\TraitElementType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\EffetRepository" class="App\Repository\EffetRepository" autowire="true" autoconfigure="true">
@@ -817,12 +830,14 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\EffetType</argument>
         <argument>App\Form\EthnieType</argument>
         <argument>App\Form\LeaderType</argument>
         <argument>App\Form\NationType</argument>
         <argument>App\Form\NationTypeEditMode</argument>
         <argument>App\Form\PartiType</argument>
         <argument>App\Form\PolitiqueType</argument>
+        <argument>App\Form\TraitElementType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1146,7 +1161,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.QDnx.Tk"/>
+      <argument type="service" id=".service_locator.E9Y6nhU"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4730,6 +4745,11 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PolitiqueController" class="App\Controller\PolitiqueController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PolitiqueController" class="App\Controller\PolitiqueController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\PolitiqueController" class="App\Controller\PolitiqueController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TraitElementController" class="App\Controller\TraitElementController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TraitElementController" class="App\Controller\TraitElementController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TraitElementController" class="App\Controller\TraitElementController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EffetType" class="App\Form\EffetType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\EffetType" class="App\Form\EffetType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EthnieType" class="App\Form\EthnieType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\EthnieType" class="App\Form\EthnieType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LeaderType" class="App\Form\LeaderType" autowire="true" abstract="true"/>
@@ -4742,6 +4762,8 @@
     <service id=".abstract.instanceof.App\Form\PartiType" class="App\Form\PartiType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PolitiqueType" class="App\Form\PolitiqueType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PolitiqueType" class="App\Form\PolitiqueType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TraitElementType" class="App\Form\TraitElementType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TraitElementType" class="App\Form\TraitElementType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EffetRepository" class="App\Repository\EffetRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EffetRepository" class="App\Repository\EffetRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EspritNationalRepository" class="App\Repository\EspritNationalRepository" autowire="true" abstract="true"/>
@@ -4983,7 +5005,13 @@
         <argument key="repoPolitique" type="service" id="App\Repository\PolitiqueRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.82Ta_0L" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.pxa4ufN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repotraits" type="service" id="App\Repository\TraitElementRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.1U3Dl5Q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\EthnieController::view" type="service" id=".service_locator.ik6HG4B"/>
@@ -4998,6 +5026,8 @@
         <argument key="App\Controller\PartiController::viewAll" type="service" id=".service_locator.blByNqA"/>
         <argument key="App\Controller\PolitiqueController::view" type="service" id=".service_locator.1Xlmhhl"/>
         <argument key="App\Controller\PolitiqueController::viewAll" type="service" id=".service_locator.blByNqA"/>
+        <argument key="App\Controller\TraitElementController::view" type="service" id=".service_locator.pxa4ufN"/>
+        <argument key="App\Controller\TraitElementController::viewAll" type="service" id=".service_locator.pxa4ufN"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5059,15 +5089,17 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.QDnx.Tk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.E9Y6nhU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\EffetType" type="service" id="App\Form\EffetType"/>
         <argument key="App\Form\EthnieType" type="service" id="App\Form\EthnieType"/>
         <argument key="App\Form\LeaderType" type="service" id="App\Form\LeaderType"/>
         <argument key="App\Form\NationType" type="service" id="App\Form\NationType"/>
         <argument key="App\Form\NationTypeEditMode" type="service" id="App\Form\NationTypeEditMode"/>
         <argument key="App\Form\PartiType" type="service" id="App\Form\PartiType"/>
         <argument key="App\Form\PolitiqueType" type="service" id="App\Form\PolitiqueType"/>
+        <argument key="App\Form\TraitElementType" type="service" id="App\Form\TraitElementType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5326,6 +5358,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\TraitElementController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\TraitElementController"/>
+      <argument>App\Controller\TraitElementController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.JFjjyG5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5465,12 +5503,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.82Ta_0L"/>
+      <argument type="service" id=".service_locator.1U3Dl5Q"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.82Ta_0L"/>
+      <argument type="service" id=".service_locator.1U3Dl5Q"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5850,7 +5888,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.82Ta_0L"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.1U3Dl5Q"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

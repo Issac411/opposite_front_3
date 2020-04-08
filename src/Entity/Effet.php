@@ -21,17 +21,22 @@ class Effet
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $Libelle;
+    private $libelle;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Description;
+    private $description;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\TraitElement", mappedBy="Effets")
      */
     private $traitElements;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $icone;
 
     public function __construct()
     {
@@ -46,7 +51,7 @@ class Effet
 
     public function getLibelle(): ?string
     {
-        return $this->Libelle;
+        return $this->libelle;
     }
 
     public function setLibelle(string $Libelle): self
@@ -58,7 +63,7 @@ class Effet
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
     public function setDescription(?string $Description): self
@@ -68,17 +73,6 @@ class Effet
         return $this;
     }
 
-    public function getTraits(): ?string
-    {
-        return $this->Traits;
-    }
-
-    public function setTraits(string $Traits): self
-    {
-        $this->Traits = $Traits;
-
-        return $this;
-    }
 
     /**
      * @return Collection|TraitElement[]
@@ -104,6 +98,18 @@ class Effet
             $this->traitElements->removeElement($traitElement);
             $traitElement->removeEffet($this);
         }
+
+        return $this;
+    }
+
+    public function getIcone(): ?string
+    {
+        return $this->icone;
+    }
+
+    public function setIcone(?string $Icone): self
+    {
+        $this->icone = $Icone;
 
         return $this;
     }

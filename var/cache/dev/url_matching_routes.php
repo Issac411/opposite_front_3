@@ -28,6 +28,9 @@ return [
         '/politique/build' => [[['_route' => 'politiquebuild', '_controller' => 'App\\Controller\\PolitiqueController::create'], null, null, null, false, false, null]],
         '/politique/viewAll' => [[['_route' => 'politiqueviewAll', '_controller' => 'App\\Controller\\PolitiqueController::viewAll'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'index', '_controller' => 'App\\Controller\\PolitiqueController::viewAll'], null, null, null, false, false, null]],
+        '/trait/element' => [[['_route' => 'trait_element', '_controller' => 'App\\Controller\\TraitElementController::index'], null, null, null, false, false, null]],
+        '/trait/build' => [[['_route' => 'traitbuild', '_controller' => 'App\\Controller\\TraitElementController::create'], null, null, null, false, false, null]],
+        '/trait/viewAll' => [[['_route' => 'traitviewall', '_controller' => 'App\\Controller\\TraitElementController::viewAll'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -65,6 +68,7 @@ return [
                         .'|view/([^/]++)(*:408)'
                     .')'
                 .')'
+                .'|/trait/view/([^/]++)(*:438)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -83,8 +87,9 @@ return [
         332 => [[['_route' => 'partiview', '_controller' => 'App\\Controller\\PartiController::view'], ['id'], null, null, false, true, null]],
         353 => [[['_route' => 'partiedit', '_controller' => 'App\\Controller\\PartiController::edit'], ['id'], null, null, false, true, null]],
         387 => [[['_route' => 'politiqueedit', '_controller' => 'App\\Controller\\PolitiqueController::edit'], ['id'], null, null, false, true, null]],
-        408 => [
-            [['_route' => 'politiqueview', '_controller' => 'App\\Controller\\PolitiqueController::view'], ['id'], null, null, false, true, null],
+        408 => [[['_route' => 'politiqueview', '_controller' => 'App\\Controller\\PolitiqueController::view'], ['id'], null, null, false, true, null]],
+        438 => [
+            [['_route' => 'traitview', '_controller' => 'App\\Controller\\TraitElementController::view'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

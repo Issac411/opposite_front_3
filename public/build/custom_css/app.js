@@ -34,6 +34,8 @@ __webpack_require__.r(__webpack_exports__);
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
+
+
 /***/ })
 
 },[["./assets/js/app.js","runtime"]]]);

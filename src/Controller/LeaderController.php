@@ -90,7 +90,7 @@ class LeaderController extends AbstractController
     public function viewAll(LeaderRepository $repoLeader) {
         $leaders = $repoLeader->findAll();
         if($leaders) {
-            return $this->render('leader/viewAll.html.twig', [
+            return $this->render('leader/viewall.html.twig', [
                 'leaders' => $leaders
             ]);
         } else {

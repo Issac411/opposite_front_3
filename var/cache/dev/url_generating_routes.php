@@ -39,4 +39,8 @@ return [
     'politiqueview' => [['id'], ['_controller' => 'App\\Controller\\PolitiqueController::view'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/politique/view']], [], []],
     'politiqueviewAll' => [[], ['_controller' => 'App\\Controller\\PolitiqueController::viewAll'], [], [['text', '/politique/viewAll']], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\PolitiqueController::viewAll'], [], [['text', '/']], [], []],
+    'trait_element' => [[], ['_controller' => 'App\\Controller\\TraitElementController::index'], [], [['text', '/trait/element']], [], []],
+    'traitbuild' => [[], ['_controller' => 'App\\Controller\\TraitElementController::create'], [], [['text', '/trait/build']], [], []],
+    'traitview' => [['id'], ['_controller' => 'App\\Controller\\TraitElementController::view'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/trait/view']], [], []],
+    'traitviewall' => [[], ['_controller' => 'App\\Controller\\TraitElementController::viewAll'], [], [['text', '/trait/viewAll']], [], []],
 ];

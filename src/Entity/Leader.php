@@ -34,11 +34,6 @@ class Leader
     private $Age;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\TraitElement", inversedBy="leaders")
-     */
-    private $Traits;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Ethnie", inversedBy="leaders")
      */
     private $Ethnie;
