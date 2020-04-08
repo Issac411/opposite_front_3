@@ -25,6 +25,15 @@
         <div class="container pb-4">
             {{ nation.libelle }} est une nation liée au {{ nation.leader.parti.politique.libelle }}. Le parti au pouvoir est le {{ nation.leader.parti.libelle }}.
         </div>
+        <div class="container pb-4">
+            <h4> Partis politiques actifs</h4>
+            {% for nation_parti in nation.nationPartis %}
+                <tr class="">
+                    <td> <a href="{{ path('partiview', {id:nation_parti.parti.id}) }}"> {{ nation_parti.parti.Libelle }}</a></td>
+                    <td><img height="24px" width="24px" src="{{ nation_parti.parti.logo }}"/></td>
+                </tr>
+            {% endfor %}
+        </div>
     </div>
 
 

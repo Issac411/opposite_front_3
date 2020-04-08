@@ -13,8 +13,7 @@
     <h3 class="text-white">{{ leader.prenom }} {{ leader.nom }}</h3>
     <div class="row">
         <div class="col-sm">
-            {{ leader.prenom }} {{ leader.nom }} est lié au <a href="{{ path('partiview', {id:leader.parti.id|number_format}) }}" >{{ leader.parti.libelle }}</a> <img height="57px" width="57px" src="{{ leader.parti.Logo }}"/>
-            . Il est agé de {{ leader.age }}.
+            {{ leader.prenom }} {{ leader.nom }} est lié au <a href="{{ path('partiview', {id:leader.parti.id|number_format}) }}" >{{ leader.parti.libelle }}</a> <img height="57px" width="57px" src="{{ leader.parti.Logo }}"/>. Il est agé de {{ leader.age }} ans.
             <div class="container pb-4">
 
 

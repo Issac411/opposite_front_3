@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Dal\Nation_Parti_factory;
 use App\Entity\Nation;
 use App\Entity\NationParti;
 use App\Form\NationType;
@@ -70,6 +71,7 @@ class NationController extends AbstractController
             }
             $form->handleRequest($request);
             if ($form->isSubmitted()) {
+                // On transforme les objets "Parti" en objets Nation_Parti
                 $lesPartis = $nation->getNationPartis();
                 $nation->removeNationPartis();
                 foreach ($lesPartis as $parti) {
@@ -79,9 +81,10 @@ class NationController extends AbstractController
                     $nation->addNationParti($nationParti);
 
                 }
-
-
-
+                //Nettoyage des anciennes relations NM
+                $nation_partiFactory = new Nation_Parti_factory($this->getDoctrine()->getConnection());
+                $nation_partiFactory->clearNationParti($nation);
+                //Sauvegarde des nouvelles relations
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($nation);
                 $entityManager->flush();

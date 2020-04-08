@@ -345,6 +345,7 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\PolitiqueController"/>
       </call>
     </service>
+    <service id="App\Dal\Nation_Parti_factory" class="App\Dal\Nation_Parti_factory" autowire="true" autoconfigure="true"/>
     <service id="App\Form\EthnieType" class="App\Form\EthnieType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>

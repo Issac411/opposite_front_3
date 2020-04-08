@@ -11,9 +11,14 @@
 <div class="container fontA styleBlocCentral">
     <div class="barreBlocElement"><button type="button" class="btn btn-primary m-2"><a  href="{{ path('nationBuild')}}">Ajouter un pays</a></button></div>
 
-
+    <h3>Nations</h3>
     <div class="container">
-
+        {% for nation in nations %}
+            <tr class="">
+                <td> <a href="{{ path('nationview', {id:nation.id}) }}"> {{ nation.Libelle }}</a></td>
+                <td><img height="24px" width="24px" src="{{ nation.drapeau }}"/></td>
+            </tr>
+        {% endfor %}
 
     </div>
 
