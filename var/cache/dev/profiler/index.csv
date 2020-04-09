@@ -1516,3 +1516,7 @@ db0ea3,::1,POST,http://localhost/opposite_front_3/public/news/edit/1,1586447444,
 b9691f,::1,GET,http://localhost/opposite_front_3/public/nation/view/2,1586447445,,200
 763f86,::1,GET,http://localhost/opposite_front_3/public/nation/view/qsdf,1586447446,a1e9f7,500
 a1e9f7,::1,GET,http://localhost/opposite_front_3/public/nation/view/qsdf,1586447446,,500
+e61ad4,::1,GET,http://localhost/opposite_front_3/public/nation/view/2,1586447706,,200
+608647,::1,GET,http://localhost/opposite_front_3/public/nation/view/qsdf,1586447707,859a3b,500
+859a3b,::1,GET,http://localhost/opposite_front_3/public/nation/view/qsdf,1586447707,,500
+1ba255,::1,GET,http://localhost/opposite_front_3/public/news/viewall,1586447708,,200
