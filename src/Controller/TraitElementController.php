@@ -84,7 +84,7 @@ class TraitElementController extends AbstractController
                 $entityManager->flush();
                 return $this->redirectToRoute("traitview", ["id" => $trait->getId()]);
             } else {
-                $return = $this->render('trait/form.html.twig', [
+                $return = $this->render('trait_element/form.html.twig', [
                     'form' => $form->createView()
                 ]);
             }
