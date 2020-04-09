@@ -33,6 +33,9 @@
         </div>
         <div class="container pb-4">
             {{ nation.libelle }} est une nation liée au {{ nation.leader.parti.politique.libelle }}. Le parti au pouvoir est le {{ nation.leader.parti.libelle }}.
+        <br/>
+        <br/>
+            {{ nation.Description|raw }}
         </div>
         <div class="container pb-4">
             <h4> Partis politiques actifs</h4>

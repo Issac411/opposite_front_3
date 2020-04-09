@@ -50,6 +50,11 @@ class Nation
      */
     private $Effets;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $Description;
+
     public function __construct()
     {
         $this->nationPartis = new ArrayCollection();
@@ -167,6 +172,18 @@ class Nation
         if ($this->Effets->contains($effet)) {
             $this->Effets->removeElement($effet);
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(?string $Description): self
+    {
+        $this->Description = $Description;
 
         return $this;
     }

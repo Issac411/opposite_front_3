@@ -9,6 +9,7 @@ use App\Entity\Nation;
 use App\Entity\Parti;
 use App\Repository\LeaderRepository;
 use Doctrine\ORM\Query\Expr\Join;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -27,6 +28,7 @@ class NationType extends AbstractType
                 'choice_label' => 'Libelle',
                 'expanded' => false,
             ])
+            ->add('Description', CKEditorType::class)
             ->add('nationPartis', EntityType::class, [
             'class' => Parti::class,
             'choice_label' => 'Libelle',
