@@ -45,9 +45,15 @@ class Nation
      */
     private $Drapeau;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Effet", inversedBy="nations")
+     */
+    private $Effets;
+
     public function __construct()
     {
         $this->nationPartis = new ArrayCollection();
+        $this->Effets = new ArrayCollection();
     }
 
 
@@ -135,6 +141,32 @@ class Nation
     public function setDrapeau(?string $Drapeau): self
     {
         $this->Drapeau = $Drapeau;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Effet[]
+     */
+    public function getEffets(): Collection
+    {
+        return $this->Effets;
+    }
+
+    public function addEffet(Effet $effet): self
+    {
+        if (!$this->Effets->contains($effet)) {
+            $this->Effets[] = $effet;
+        }
+
+        return $this;
+    }
+
+    public function removeEffet(Effet $effet): self
+    {
+        if ($this->Effets->contains($effet)) {
+            $this->Effets->removeElement($effet);
+        }
 
         return $this;
     }

@@ -15,6 +15,11 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
+    'effet' => [[], ['_controller' => 'App\\Controller\\EffetController::index'], [], [['text', '/effet']], [], []],
+    'effetbuild' => [[], ['_controller' => 'App\\Controller\\EffetController::create'], [], [['text', '/effet/build']], [], []],
+    'effetviewall' => [[], ['_controller' => 'App\\Controller\\EffetController::viewAll'], [], [['text', '/effet/viewAll']], [], []],
+    'effetview' => [['id'], ['_controller' => 'App\\Controller\\EffetController::view'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/effet/view']], [], []],
+    'effetedit' => [['id'], ['_controller' => 'App\\Controller\\EffetController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/effet/edit']], [], []],
     'ethnie' => [[], ['_controller' => 'App\\Controller\\EthnieController::index'], [], [['text', '/ethnie']], [], []],
     'ethniebuild' => [[], ['_controller' => 'App\\Controller\\EthnieController::form'], [], [['text', '/ethnie/build']], [], []],
     'ethnieview' => [['id'], ['_controller' => 'App\\Controller\\EthnieController::view'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/ethnie/view']], [], []],
@@ -43,4 +48,6 @@ return [
     'traitbuild' => [[], ['_controller' => 'App\\Controller\\TraitElementController::create'], [], [['text', '/trait/build']], [], []],
     'traitview' => [['id'], ['_controller' => 'App\\Controller\\TraitElementController::view'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/trait/view']], [], []],
     'traitviewall' => [[], ['_controller' => 'App\\Controller\\TraitElementController::viewAll'], [], [['text', '/trait/viewAll']], [], []],
+    'traitedit' => [['id'], ['_controller' => 'App\\Controller\\TraitElementController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/trait/edit']], [], []],
+    'easyadmin' => [[], ['_controller' => 'EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\EasyAdminController::indexAction'], [], [['text', '/admin/']], [], []],
 ];

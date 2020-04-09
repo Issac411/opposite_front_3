@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Effet;
 use App\Entity\Ethnie;
 use App\Entity\Leader;
 use App\Entity\Nation;
@@ -33,6 +34,11 @@ class NationType extends AbstractType
                 return $item->getPolitique()->getLibelle();
             },
             'multiple'  => true
+            ])
+            ->add('Effets', EntityType::class, [
+                'class' => Effet::class,
+                'choice_label' => 'Libelle',
+                'multiple'  => true
             ])
             ->add('Leader', EntityType::class, [
                 'class' => Leader::class,

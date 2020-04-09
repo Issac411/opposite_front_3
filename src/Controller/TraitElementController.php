@@ -69,4 +69,26 @@ class TraitElementController extends AbstractController
             return $this->redirectToRoute("traitbuild");
         }
     }
+
+    /**
+     * @Route("/trait/edit/{id}", name="traitedit")
+     */
+    public function edit(int $id, Request $request, TraitElementRepository $repoTraits) {
+        $trait = $repoTraits->find($id);
+        if($trait) {
+            $form = $this->createForm(TraitElementType::class, $trait);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($trait);
+                $entityManager->flush();
+                return $this->redirectToRoute("traitview", ["id" => $trait->getId()]);
+            } else {
+                $return = $this->render('trait/form.html.twig', [
+                    'form' => $form->createView()
+                ]);
+            }
+        }
+        return $return;
+    }
 }

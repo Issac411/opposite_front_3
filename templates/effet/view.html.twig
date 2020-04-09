@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PolitiqueController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container fontA styleBlocCentral">
+    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('effetviewall')}}">Retour</a></button><button type="button" class="btn btn-info"><a  href="{{ path('effetedit', {id:effet.id})}}">Editer</a></button></div>
+    <div class="container p-4 text-justify">
+        <div><h3 >{{ effet.Libelle }}<img height="46px" width="46px" src="{{ effet.icone }}"/></h3></div>
+        <div>{{  effet.Description|raw }}</div>
+
+        <div class="container">
+            <table>
+                {% for trait in effet.TraitElements %}
+                    <tr>
+                        <td> <a style="color:{{ trait.couleur }};" href="{{ path('traitview', {id:trait.id}) }}"> {{ trait.Libelle }}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

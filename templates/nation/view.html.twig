@@ -12,13 +12,22 @@
     <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{  path('nationedit', {id:nation.id|number_format})}}">Editer</a></button><button type="button" class="btn btn-info"><a  href="{{ path('nationviewall')}}">Retour</a></button></div>
     <h3 class="text-white">{{ nation.libelle }}</h3>
     <div class="row">
-
-
+        <div class="container pb-4">
+            {% for effet in nation.effets %}
+                <img class="infoElement" id="{{ effet.id }}" alt="test" src="{{ effet.icone }}"/>
+                <div class="infoBulle" id="bulle{{ effet.id }}">{{ effet.Description|raw }}
+                    {% for trait in effet.TraitElements %}
+                        <span style="color:{{ trait.couleur }};">{{ trait.libelle }}</span><br/>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
     <div class="row">
         <div class="col-sm">
                 <img src="{{ nation.leader.photo }}"> <i>{{ nation.leader.nom }} {{ nation.leader.prenom }}</i>
         </div>
+
         <div class="col-sm">
             <img class="profilePic" src="{{ nation.drapeau }}" /><i class="alignFlag">Drapeau national</i>
         </div>
@@ -41,4 +50,16 @@
 
 
 </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(".infoElement").mouseover(function() {
+            $("#bulle"+this.id).show();
+        });
+
+        $(".infoElement").mouseleave(function() {
+            $("#bulle"+this.id).hide();
+        });
+    </script>
 {% endblock %}
+
+

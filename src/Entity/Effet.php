@@ -21,27 +21,28 @@ class Effet
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $libelle;
+    private $Libelle;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    private $Description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\TraitElement", mappedBy="Effets")
-     */
-    private $traitElements;
 
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $icone;
 
-    public function __construct()
-    {
-        $this->traitElements = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\TraitElement")
+     */
+    private $TraitElements;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Nation", mappedBy="Effets")
+     */
+    private $nations;
 
 
     public function getId(): ?int
@@ -51,7 +52,7 @@ class Effet
 
     public function getLibelle(): ?string
     {
-        return $this->libelle;
+        return $this->Libelle;
     }
 
     public function setLibelle(string $Libelle): self
@@ -63,7 +64,7 @@ class Effet
 
     public function getDescription(): ?string
     {
-        return $this->description;
+        return $this->Description;
     }
 
     public function setDescription(?string $Description): self
@@ -73,34 +74,12 @@ class Effet
         return $this;
     }
 
-
-    /**
-     * @return Collection|TraitElement[]
-     */
-    public function getTraitElements(): Collection
+    public function __construct()
     {
-        return $this->traitElements;
+        $this->TraitElements = new ArrayCollection();
+        $this->nations = new ArrayCollection();
     }
 
-    public function addTraitElement(TraitElement $traitElement): self
-    {
-        if (!$this->traitElements->contains($traitElement)) {
-            $this->traitElements[] = $traitElement;
-            $traitElement->addEffet($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTraitElement(TraitElement $traitElement): self
-    {
-        if ($this->traitElements->contains($traitElement)) {
-            $this->traitElements->removeElement($traitElement);
-            $traitElement->removeEffet($this);
-        }
-
-        return $this;
-    }
 
     public function getIcone(): ?string
     {
@@ -113,4 +92,59 @@ class Effet
 
         return $this;
     }
+
+    /**
+     * @return Collection|TraitElement[]
+     */
+    public function getTraitElements(): Collection
+    {
+        return $this->TraitElements;
+    }
+
+    public function addTraitElement(TraitElement $traitElement): self
+    {
+        if (!$this->TraitElements->contains($traitElement)) {
+            $this->TraitElements[] = $traitElement;
+        }
+
+        return $this;
+    }
+
+    public function removeTraitElement(TraitElement $traitElement): self
+    {
+        if ($this->TraitElements->contains($traitElement)) {
+            $this->TraitElements->removeElement($traitElement);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Nation[]
+     */
+    public function getNations(): Collection
+    {
+        return $this->nations;
+    }
+
+    public function addNation(Nation $nation): self
+    {
+        if (!$this->nations->contains($nation)) {
+            $this->nations[] = $nation;
+            $nation->addEffet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNation(Nation $nation): self
+    {
+        if ($this->nations->contains($nation)) {
+            $this->nations->removeElement($nation);
+            $nation->removeEffet($this);
+        }
+
+        return $this;
+    }
+
 }

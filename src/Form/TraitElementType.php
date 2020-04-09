@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\TraitElement;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,7 +18,7 @@ class TraitElementType extends AbstractType
     {
         $builder
             ->add('Libelle')
-            ->add('Description', TextareaType::class)
+            ->add('couleur',ColorType::class)
             ->add('submit', SubmitType::class)
         ;
     }

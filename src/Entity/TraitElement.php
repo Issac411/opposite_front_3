@@ -23,20 +23,15 @@ class TraitElement
      */
     private $Libelle;
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $Description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Effet", inversedBy="traitElements")
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
-    private $Effets;
+    private $couleur;
 
 
     public function __construct()
     {
-        $this->Effets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -68,28 +63,14 @@ class TraitElement
         return $this;
     }
 
-    /**
-     * @return Collection|Effet[]
-     */
-    public function getEffets(): Collection
+    public function getCouleur(): ?string
     {
-        return $this->Effets;
+        return $this->couleur;
     }
 
-    public function addEffet(Effet $effet): self
+    public function setCouleur(?string $couleur): self
     {
-        if (!$this->Effets->contains($effet)) {
-            $this->Effets[] = $effet;
-        }
-
-        return $this;
-    }
-
-    public function removeEffet(Effet $effet): self
-    {
-        if ($this->Effets->contains($effet)) {
-            $this->Effets->removeElement($effet);
-        }
+        $this->couleur = $couleur;
 
         return $this;
     }
