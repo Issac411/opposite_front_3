@@ -9,7 +9,7 @@
 </style>
 
 <div class="container fontA styleBlocCentral">
-    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('partiviewall')}}">Retour</a></button><button type="button" class="btn btn-info"><a  href="{{ path('politiqueedit', {id:politique.id})}}">Editer</a></button></div>
+    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('partiviewall')}}">Retour</a></button><button type="button" class="btn btn-info"><a  href="{{ path('politiqueedit', {id:politique.id})}}">Editer</a></button><button type="button" class="btn btn-info"><a  href="{{ path('politiqueremove', {id:politique.id})}}">Détruire</a></button></div>
     <div class="container p-4 text-justify">
         <div><h3 class="text-white">{{ politique.Libelle }} <img height="57px" width="57px" src="{{ politique.Logo }}"/></h3></div>
         <div>{{ politique.Description|raw }}</div>

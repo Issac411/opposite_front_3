@@ -62,6 +62,19 @@ class PartiController extends AbstractController
     }
 
     /**
+     * @Route("/parti/remove/{id}", name="partiremove")
+     */
+    public function delete(Int $id, PartiRepository $repoPartis) {
+        $parti = $repoPartis->find($id);
+        if($parti) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($parti);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("partiviewall");
+    }
+
+    /**
      * @Route("/parti/viewall", name="partiviewall")
      */
     public function viewAll(PolitiqueRepository $repoPolitique) {

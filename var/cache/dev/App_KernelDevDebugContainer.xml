@@ -5652,27 +5652,35 @@
         <argument key="repoTraits" type="service" id="App\Repository\TraitElementRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.EzEDSy1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.iuhjAuS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\EffetController::delete" type="service" id=".service_locator.mIOD5lj"/>
         <argument key="App\Controller\EffetController::edit" type="service" id=".service_locator.mIOD5lj"/>
         <argument key="App\Controller\EffetController::view" type="service" id=".service_locator.mIOD5lj"/>
         <argument key="App\Controller\EffetController::viewAll" type="service" id=".service_locator.M9fnksV"/>
+        <argument key="App\Controller\EthnieController::delete" type="service" id=".service_locator.ik6HG4B"/>
         <argument key="App\Controller\EthnieController::view" type="service" id=".service_locator.ik6HG4B"/>
+        <argument key="App\Controller\LeaderController::delete" type="service" id=".service_locator.Jgwj3lq"/>
         <argument key="App\Controller\LeaderController::edit" type="service" id=".service_locator.Jgwj3lq"/>
         <argument key="App\Controller\LeaderController::view" type="service" id=".service_locator.Jgwj3lq"/>
         <argument key="App\Controller\LeaderController::viewAll" type="service" id=".service_locator.Jgwj3lq"/>
+        <argument key="App\Controller\NationController::delete" type="service" id=".service_locator.u8T8CZA"/>
         <argument key="App\Controller\NationController::edit" type="service" id=".service_locator.u8T8CZA"/>
         <argument key="App\Controller\NationController::view" type="service" id=".service_locator.u8T8CZA"/>
         <argument key="App\Controller\NationController::viewAll" type="service" id=".service_locator.u8T8CZA"/>
+        <argument key="App\Controller\NewsController::delete" type="service" id=".service_locator.hrM4qDE"/>
         <argument key="App\Controller\NewsController::edit" type="service" id=".service_locator.hrM4qDE"/>
         <argument key="App\Controller\NewsController::view" type="service" id=".service_locator.hrM4qDE"/>
         <argument key="App\Controller\NewsController::viewAll" type="service" id=".service_locator.hrM4qDE"/>
+        <argument key="App\Controller\PartiController::delete" type="service" id=".service_locator.L3HApHE"/>
         <argument key="App\Controller\PartiController::edit" type="service" id=".service_locator.L3HApHE"/>
         <argument key="App\Controller\PartiController::view" type="service" id=".service_locator.L3HApHE"/>
         <argument key="App\Controller\PartiController::viewAll" type="service" id=".service_locator.blByNqA"/>
+        <argument key="App\Controller\PolitiqueController::delete" type="service" id=".service_locator.blByNqA"/>
         <argument key="App\Controller\PolitiqueController::view" type="service" id=".service_locator.1Xlmhhl"/>
         <argument key="App\Controller\PolitiqueController::viewAll" type="service" id=".service_locator.blByNqA"/>
+        <argument key="App\Controller\TraitElementController::delete" type="service" id=".service_locator.S1.6c3U"/>
         <argument key="App\Controller\TraitElementController::edit" type="service" id=".service_locator.S1.6c3U"/>
         <argument key="App\Controller\TraitElementController::view" type="service" id=".service_locator.pxa4ufN"/>
         <argument key="App\Controller\TraitElementController::viewAll" type="service" id=".service_locator.pxa4ufN"/>
@@ -6205,12 +6213,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.EzEDSy1"/>
+      <argument type="service" id=".service_locator.iuhjAuS"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.EzEDSy1"/>
+      <argument type="service" id=".service_locator.iuhjAuS"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6609,7 +6617,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Form\Filter\FilterRegistry" alias="easyadmin.filter.registry" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.EzEDSy1"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.iuhjAuS"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

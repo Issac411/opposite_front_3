@@ -113,6 +113,18 @@ class NationController extends AbstractController
     }
 
     /**
+     * @Route("/nation/remove/{id}", name="nationremove")
+     */
+    public function delete(Int $id, NationRepository $repoNation) {
+        $nation = $repoNation->find($id);
+        if($nation) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($nation);
+        }
+        return $this->redirectToRoute("nationviewall");
+    }
+
+    /**
      * @Route("/nation/viewall", name="nationviewall")
      */
     public function viewAll(NationRepository $repoNation) {

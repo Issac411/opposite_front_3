@@ -45,6 +45,19 @@ class PolitiqueController extends AbstractController
     }
 
     /**
+     * @Route("/politique/remove/{id}", name="politiqueremove")
+     */
+    public function delete(Int $id, PolitiqueRepository $repoPolitique) {
+        $politique = $repoPolitique->find($id);
+        if($politique) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($politique);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("politiqueviewall");
+    }
+
+    /**
      * @Route("/politique/edit/{id}", name="politiqueedit")
      */
     public function edit(int $id, Request $request) {

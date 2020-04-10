@@ -73,6 +73,19 @@ class EffetController extends AbstractController
     }
 
     /**
+     * @Route("/effet/remove/{id}", name="effetremove")
+     */
+    public function delete(Int $id, EffetRepository $repoEffet) {
+        $effet = $repoEffet->find($id);
+        if($effet) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($effet);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("effetviewall");
+    }
+
+    /**
      * @Route("/effet/edit/{id}", name="effetedit")
      */
     public function edit(int $id, Request $request, EffetRepository $repoEffet) {

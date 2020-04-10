@@ -9,7 +9,7 @@
 </style>
 
 <div class="container fontA styleBlocCentral">
-    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('traitviewall')}}">Retour</a></button><button type="button" class="btn btn-info"><a  href="{{ path('traitedit', {id:trait.id})}}">Editer</a></button></div>
+    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('traitviewall')}}">Retour</a></button><button type="button" class="btn btn-info"><a  href="{{ path('traitedit', {id:trait.id})}}">Editer</a></button><button type="button" class="btn btn-info"><a  href="{{ path('traitremove', {id:trait.id})}}">Détruire</a></button></div>
     <div class="container p-4 text-justify">
         <div><h3  style="color:{{ trait.couleur }};" >{{ trait.Libelle }}</h3></div>
         <div>{{ trait.Couleur }}</div>

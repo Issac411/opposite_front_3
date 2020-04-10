@@ -9,7 +9,7 @@
 </style>
 
 <div class="container fontA styleBlocCentral">
-    <div class="barreBlocElement"><button type="button" class="btn btn-primary"><a  href="{{ path('partiedit', {id:parti.id}) }}">Editer</a></button></div>
+    <div class="barreBlocElement"><button type="button" class="btn btn-primary"><a  href="{{ path('partiedit', {id:parti.id}) }}">Editer</a></button><button type="button" class="btn btn-primary"><a  href="{{ path('partiremove', {id:parti.id}) }}">Détruire</a></button></div>
 
     <h3 class="text-white">{{ parti.Libelle }} <img height="57px" width="57px" src="{{ parti.Logo }}"/></h3>
 

@@ -9,7 +9,7 @@
 </style>
 
 <div class="container fontA styleBlocCentral">
-    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('effetviewall')}}">Retour</a></button><button type="button" class="btn btn-info"><a  href="{{ path('effetedit', {id:effet.id})}}">Editer</a></button></div>
+    <div class="barreBlocElement"><button type="button" class="btn btn-info"><a  href="{{ path('effetviewall')}}">Retour</a></button><button type="button" class="btn btn-info"><a  href="{{ path('effetedit', {id:effet.id})}}">Editer</a></button><button type="button" class="btn btn-info"><a  href="{{ path('effetremove', {id:effet.id})}}">Détruire</a></button></div>
     <div class="container p-4 text-justify">
         <div><h3 >{{ effet.Libelle }}<img height="46px" width="46px" src="{{ effet.icone }}"/></h3></div>
         <div>{{  effet.Description|raw }}</div>

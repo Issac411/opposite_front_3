@@ -71,6 +71,19 @@ class TraitElementController extends AbstractController
     }
 
     /**
+     * @Route("/trait/remove/{id}", name="traitremove")
+     */
+    public function delete(Int $id, TraitElementRepository $repoTraits) {
+        $trait = $repoTraits->find($id);
+        if($trait) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($trait);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("traitviewall");
+    }
+
+    /**
      * @Route("/trait/edit/{id}", name="traitedit")
      */
     public function edit(int $id, Request $request, TraitElementRepository $repoTraits) {

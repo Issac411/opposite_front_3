@@ -68,6 +68,19 @@ class NewsController extends AbstractController
     }
 
     /**
+     * @Route("/news/remove/{id}", name="newsremove")
+     */
+    public function delete(Int $id, NewsRepository $reponews) {
+        $news = $reponews->find($id);
+        if($news) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($news);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("newsviewall");
+    }
+
+    /**
      * @Route("/news/view/{id}", name="newsview")
      */
     public function view(Int $id, NewsRepository $reponews) {

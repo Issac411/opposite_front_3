@@ -42,6 +42,19 @@ class EthnieController extends AbstractController
     }
 
     /**
+     * @Route("/ethnie/remove/{id}", name="ethnieremove")
+     */
+    public function delete(Int $id, EthnieRepository $repoEthnie) {
+        $ethnie = $repoEthnie->find($id);
+        if($ethnie) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($ethnie);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("ethnieviewall");
+    }
+
+    /**
      * @Route("/ethnie/view/{id}", name="ethnieview")
      */
     public function view(Int $id, EthnieRepository $repoEthnie) {

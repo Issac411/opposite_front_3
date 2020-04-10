@@ -59,37 +59,47 @@ return [
                 .'|/e(?'
                     .'|ffet/(?'
                         .'|view/([^/]++)(*:195)'
-                        .'|edit/([^/]++)(*:216)'
+                        .'|remove/([^/]++)(*:218)'
+                        .'|edit/([^/]++)(*:239)'
                     .')'
-                    .'|thnie/view/([^/]++)(*:244)'
+                    .'|thnie/(?'
+                        .'|remove/([^/]++)(*:272)'
+                        .'|view/([^/]++)(*:293)'
+                    .')'
                 .')'
                 .'|/leader/(?'
-                    .'|edit/([^/]++)(*:277)'
-                    .'|view/([^/]++)(*:298)'
+                    .'|edit/([^/]++)(*:327)'
+                    .'|remove/([^/]++)(*:350)'
+                    .'|view/([^/]++)(*:371)'
                 .')'
                 .'|/n(?'
                     .'|ation/(?'
-                        .'|edit/([^/]++)(*:334)'
-                        .'|view/([^/]++)(*:355)'
+                        .'|edit/([^/]++)(*:407)'
+                        .'|view/([^/]++)(*:428)'
+                        .'|remove/([^/]++)(*:451)'
                     .')'
                     .'|ews/(?'
-                        .'|edit/([^/]++)(*:384)'
-                        .'|view/([^/]++)(*:405)'
+                        .'|edit/([^/]++)(*:480)'
+                        .'|remove/([^/]++)(*:503)'
+                        .'|view/([^/]++)(*:524)'
                     .')'
                 .')'
                 .'|/p(?'
                     .'|arti/(?'
-                        .'|view/([^/]++)(*:441)'
-                        .'|edit/([^/]++)(*:462)'
+                        .'|view/([^/]++)(*:560)'
+                        .'|remove/([^/]++)(*:583)'
+                        .'|edit/([^/]++)(*:604)'
                     .')'
                     .'|olitique/(?'
-                        .'|edit/([^/]++)(*:496)'
-                        .'|view/([^/]++)(*:517)'
+                        .'|remove/([^/]++)(*:640)'
+                        .'|edit/([^/]++)(*:661)'
+                        .'|view/([^/]++)(*:682)'
                     .')'
                 .')'
                 .'|/trait/(?'
-                    .'|view/([^/]++)(*:550)'
-                    .'|edit/([^/]++)(*:571)'
+                    .'|view/([^/]++)(*:715)'
+                    .'|remove/([^/]++)(*:738)'
+                    .'|edit/([^/]++)(*:759)'
                 .')'
             .')/?$}sDu',
     ],
@@ -102,20 +112,28 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         195 => [[['_route' => 'effetview', '_controller' => 'App\\Controller\\EffetController::view'], ['id'], null, null, false, true, null]],
-        216 => [[['_route' => 'effetedit', '_controller' => 'App\\Controller\\EffetController::edit'], ['id'], null, null, false, true, null]],
-        244 => [[['_route' => 'ethnieview', '_controller' => 'App\\Controller\\EthnieController::view'], ['id'], null, null, false, true, null]],
-        277 => [[['_route' => 'leaderedit', '_controller' => 'App\\Controller\\LeaderController::edit'], ['id'], null, null, false, true, null]],
-        298 => [[['_route' => 'leaderview', '_controller' => 'App\\Controller\\LeaderController::view'], ['id'], null, null, false, true, null]],
-        334 => [[['_route' => 'nationedit', '_controller' => 'App\\Controller\\NationController::edit'], ['id'], null, null, false, true, null]],
-        355 => [[['_route' => 'nationview', '_controller' => 'App\\Controller\\NationController::view'], ['id'], null, null, false, true, null]],
-        384 => [[['_route' => 'newsedit', '_controller' => 'App\\Controller\\NewsController::edit'], ['id'], null, null, false, true, null]],
-        405 => [[['_route' => 'newsview', '_controller' => 'App\\Controller\\NewsController::view'], ['id'], null, null, false, true, null]],
-        441 => [[['_route' => 'partiview', '_controller' => 'App\\Controller\\PartiController::view'], ['id'], null, null, false, true, null]],
-        462 => [[['_route' => 'partiedit', '_controller' => 'App\\Controller\\PartiController::edit'], ['id'], null, null, false, true, null]],
-        496 => [[['_route' => 'politiqueedit', '_controller' => 'App\\Controller\\PolitiqueController::edit'], ['id'], null, null, false, true, null]],
-        517 => [[['_route' => 'politiqueview', '_controller' => 'App\\Controller\\PolitiqueController::view'], ['id'], null, null, false, true, null]],
-        550 => [[['_route' => 'traitview', '_controller' => 'App\\Controller\\TraitElementController::view'], ['id'], null, null, false, true, null]],
-        571 => [
+        218 => [[['_route' => 'effetremove', '_controller' => 'App\\Controller\\EffetController::delete'], ['id'], null, null, false, true, null]],
+        239 => [[['_route' => 'effetedit', '_controller' => 'App\\Controller\\EffetController::edit'], ['id'], null, null, false, true, null]],
+        272 => [[['_route' => 'ethnieremove', '_controller' => 'App\\Controller\\EthnieController::delete'], ['id'], null, null, false, true, null]],
+        293 => [[['_route' => 'ethnieview', '_controller' => 'App\\Controller\\EthnieController::view'], ['id'], null, null, false, true, null]],
+        327 => [[['_route' => 'leaderedit', '_controller' => 'App\\Controller\\LeaderController::edit'], ['id'], null, null, false, true, null]],
+        350 => [[['_route' => 'leaderremove', '_controller' => 'App\\Controller\\LeaderController::delete'], ['id'], null, null, false, true, null]],
+        371 => [[['_route' => 'leaderview', '_controller' => 'App\\Controller\\LeaderController::view'], ['id'], null, null, false, true, null]],
+        407 => [[['_route' => 'nationedit', '_controller' => 'App\\Controller\\NationController::edit'], ['id'], null, null, false, true, null]],
+        428 => [[['_route' => 'nationview', '_controller' => 'App\\Controller\\NationController::view'], ['id'], null, null, false, true, null]],
+        451 => [[['_route' => 'nationremove', '_controller' => 'App\\Controller\\NationController::delete'], ['id'], null, null, false, true, null]],
+        480 => [[['_route' => 'newsedit', '_controller' => 'App\\Controller\\NewsController::edit'], ['id'], null, null, false, true, null]],
+        503 => [[['_route' => 'newsremove', '_controller' => 'App\\Controller\\NewsController::delete'], ['id'], null, null, false, true, null]],
+        524 => [[['_route' => 'newsview', '_controller' => 'App\\Controller\\NewsController::view'], ['id'], null, null, false, true, null]],
+        560 => [[['_route' => 'partiview', '_controller' => 'App\\Controller\\PartiController::view'], ['id'], null, null, false, true, null]],
+        583 => [[['_route' => 'partiremove', '_controller' => 'App\\Controller\\PartiController::delete'], ['id'], null, null, false, true, null]],
+        604 => [[['_route' => 'partiedit', '_controller' => 'App\\Controller\\PartiController::edit'], ['id'], null, null, false, true, null]],
+        640 => [[['_route' => 'politiqueremove', '_controller' => 'App\\Controller\\PolitiqueController::delete'], ['id'], null, null, false, true, null]],
+        661 => [[['_route' => 'politiqueedit', '_controller' => 'App\\Controller\\PolitiqueController::edit'], ['id'], null, null, false, true, null]],
+        682 => [[['_route' => 'politiqueview', '_controller' => 'App\\Controller\\PolitiqueController::view'], ['id'], null, null, false, true, null]],
+        715 => [[['_route' => 'traitview', '_controller' => 'App\\Controller\\TraitElementController::view'], ['id'], null, null, false, true, null]],
+        738 => [[['_route' => 'traitremove', '_controller' => 'App\\Controller\\TraitElementController::delete'], ['id'], null, null, false, true, null]],
+        759 => [
             [['_route' => 'traitedit', '_controller' => 'App\\Controller\\TraitElementController::edit'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

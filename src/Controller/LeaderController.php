@@ -69,6 +69,18 @@ class LeaderController extends AbstractController
         return $return;
     }
 
+    /**
+     * @Route("/leader/remove/{id}", name="leaderremove")
+     */
+    public function delete(Int $id, LeaderRepository $repoLeader) {
+        $leader = $repoLeader->find($id);
+        if($leader) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($leader);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("leaderremove");
+    }
 
     /**
      * @Route("/leader/view/{id}", name="leaderview")
