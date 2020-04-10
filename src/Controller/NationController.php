@@ -120,6 +120,7 @@ class NationController extends AbstractController
         if($nation) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($nation);
+            $entityManager->flush();
         }
         return $this->redirectToRoute("nationviewall");
     }
